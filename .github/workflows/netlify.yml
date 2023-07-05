@@ -10,11 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: "Show all files"
-        run: ls
+      - name: "run test cases"
+        run: echo 'running test...'
       
-      - name: "My message"
-        run: echo "This is a secure area. Make sure you wear your eye glasses"
+      - name: "pull code"
+        uses: actions/checkout@v2
 
-      - name: 'run test case'
-        run: exit 1 
+      - name: Deployment system
+        uses: netlify/actions/cli@master 
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with: 
+          args: deploy --dir=. --prod
+          
+          
