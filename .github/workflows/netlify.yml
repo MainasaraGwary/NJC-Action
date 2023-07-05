@@ -1,0 +1,20 @@
+name: Production Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  static_test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: "Show all files"
+        run: ls
+      
+      - name: "My message"
+        run: echo "This is a secure area. Make sure you wear your eye glasses"
+
+      - name: 'run test case'
+        run: exit 1 
