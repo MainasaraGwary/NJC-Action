@@ -1,4 +1,4 @@
-name: Production Pipeline
+name: "Netlify Production Pipeline"
 
 on:
   push:
